@@ -1,13 +1,87 @@
 import React from 'react';
+import { v4 as uuidv4 } from 'uuid';
 import './App.css';
 
+import TodoItem from './TodoItem';
+
 const todos = [
-    {id: 1, name: 'Go to the supermarket', complete: false},
-    {id: 2, name: 'Call Alice', complete: false},
-    {id: 3, name: 'Ask Alice to call Bob', complete: false},
-    {id: 4, name: 'Do the dishes', complete: false},
-    {id: 5, name: 'Change car tyres', complete: false}
+    {id: "1", name: 'Go to the supermarket', complete: false},
+    {id: "2", name: 'Call Alice', complete: false},
+    {id: "3", name: 'Ask Alice to call Bob', complete: false},
+    {id: "4", name: 'Do the dishes', complete: false},
+    {id: "5", name: 'Change car tyres', complete: false}
 ];
+
+const todoObject = ({});
+for (const todo in todos) {
+  todoObject[""+todo.id] = todo
+}
+
+const todos2 = {
+  "a1": {id: "a1", name: 'Go to the supermarket', complete: false},
+  "a2": {id: "a2", name: 'Call Alice', complete: false},
+  "a3": {id: "a3", name: 'Ask Alice to call Bob', complete: false},
+  "a4": {id: "a4", name: 'Do the dishes', complete: false},
+  "a5": {id: "a5", name: 'Change car tyres', complete: false}
+};
+
+console.log('todos;', todoObject)
+
+const generateNewId = uuidv4
+
+const App2 = () => {
+  const [todos, setTodos] = React.useState(todos2);
+  const [newTodoName, setNewTodoName] = React.useState('');
+
+  const handleSubmitNewTodo = (ev) => {
+    ev.preventDefault();
+    const newId = uuidv4()
+
+    setTodos(oldTodos => ({
+      ...oldTodos, 
+      [newId]: {
+        id: newId,
+        name: this.state.newTodoName,
+        complete: false,
+      }
+    }))
+    setNewTodoName('')
+  }
+
+  const deleteTodo = id => {
+    if(todos[id])
+    setTodos(oldTodos => {
+      const {[id]: _, ...newTodos} = oldTodos
+      return newTodos
+    })
+  }
+
+  const toggleTodo = id => {
+    const targetTodo = todos[id]; 
+
+    setTodos(oldTodos => ({
+      ...oldTodos,
+      [id]: {
+        ...targetTodo,
+        complete: !targetTodo.complete
+      }
+    }))
+  }
+
+  return (
+    <div>
+      {console.log('', todos)}
+      {Object.keys(todos).map(todoKey => 
+        <TodoItem
+          key={todoKey}
+          todo={todos[todoKey]}
+          deleteTodo={deleteTodo}
+          toggleTodo={toggleTodo}
+        />
+      )}
+    </div>
+  )
+}
 
 class App extends React.Component {
     constructor(props) {
@@ -144,4 +218,4 @@ class Bar extends React.Component {
     }
 }
 
-export default App;
+export default App2;
