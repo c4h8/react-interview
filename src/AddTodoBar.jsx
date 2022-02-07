@@ -1,32 +1,56 @@
-const getClassname = (complete) => complete
-  ? 'todo'
-  : 'todo complete'
+import React from 'react';
+import './addTodoBar.css';
 
-const TodoItem = ({
-  todo: {
-    id,
-    name,
-    complete
-  },
-  toggleTodo,
-  delteTodo,
+const AddTodoBar = ({
+  addTodo
 }) => {
+  const [newTodoText, setNewTodoText] = React.useState('');
+
+  const handleOnChange = (ev) => {
+    const value = ev.target.value;
+    setNewTodoText(value)
+  }
+
+  const handleSubmit = (ev) => {
+    ev.preventDefault();
+
+    const todoTrimmed = newTodoText.trim()
+
+    if(todoTrimmed !== '') {
+      addTodo(todoTrimmed)
+      setNewTodoText('')
+    }
+  }
+
   return (
-    <div className={getClassname(complete)}>
-      <h3>{this.props.todo.name}</h3>
-      <button
-        className="btn"
-        onClick={() => toggleTodo(id)}>
-        {text}
-      </button>
-      <button
-        className="btn"
-        onClick={() => deleteTodo(id)
-      }>
-          Remove from list
-      </button>
-  </div>
-  )
+    <div className="add-todo-bar">
+      <div className="py-2">
+        
+        <form
+          style={{display: 'flex', flexGrow: '1'}}
+          onSubmit={handleSubmit}
+        >
+          <div className="input-group">
+            <input
+              style={{flexGrow: '1'}}
+              type="text"
+              className="form-control"
+              placeholder="Add new todo"
+              value={newTodoText}
+              onChange={handleOnChange}
+            />
+            <button
+              className="btn btn-success"
+              type="submit"
+              value="Submit"
+            >
+              Submit
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  );
 }
 
-export default TodoItem;
+export default AddTodoBar;

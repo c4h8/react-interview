@@ -1,0 +1,36 @@
+
+
+.todo {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  vertical-align: middle;
+}
+
+.todo input[type="checkbox"] {
+  width: 2em;
+  height: 2rem;
+  margin-right: 1rem;
+  accent-color: rgb(230, 230, 230);
+}
+
+
+.todo.incomplete {
+  background-color: #fff;
+}
+
+.todo.complete {
+  font-style: italic;
+  text-decoration-line: line-through;
+  color: rgb(121, 121, 121);
+  background-color: rgb(236, 236, 236);
+}
+
+.todo > span {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.todo > span > * {
+  vertical-align: middle;
+}

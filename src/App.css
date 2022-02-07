@@ -1,5 +1,5 @@
 body {
-  margin: 40px auto;
+  margin: 0 auto;
   max-width: 480px;
   line-height: 1.6;
   font-size: 18px;
@@ -10,7 +10,6 @@ body {
 h1, h3 {
   text-align: center;
 }
-
 
 .wrapper {
   display: grid;
@@ -23,7 +22,7 @@ h1, h3 {
   color: #c4c4c4 
 }
 
-.btn {
+/* .btn {
   background-color: #444;
   border: none; 
   color: white;
@@ -40,4 +39,4 @@ h1, h3 {
 
 .btn-success {
   background-color: green;
-}
+} */

@@ -1,8 +1,9 @@
 import React from 'react';
+import './todo.css';
 
 const getClassname = (complete) => complete
-  ? 'todo'
-  : 'todo complete'
+  ? 'list-group-item todo complete'
+  : 'list-group-item todo incomplete'
 
 const TodoItem = ({
   todo:  {
@@ -13,23 +14,29 @@ const TodoItem = ({
   toggleTodo,
   deleteTodo,
 }) => {
-
   return (
-    <div className={getClassname(complete)}>
-      <h3>{name}</h3>
-      {console.log('', name)}
+    <li className={getClassname(complete)}>
+      <span>
+
+        <input type="checkbox"
+          value={complete}
+          onChange={() => toggleTodo(id)}
+        />
+        {/* <button
+          className="btn"
+          aria-label="Toggle"
+          onClick={() => toggleTodo(id)}>
+        </button> */}
+        {name}  
+      </span>
       <button
-        className="btn"
-        onClick={() => toggleTodo(id)}>
-        {name}
-      </button>
-      <button
-        className="btn"
+        className="btn btn-outline-secondary"
+        aria-label="Delete"
         onClick={() => deleteTodo(id)
       }>
-          Remove from list
+        Delete
       </button>
-  </div>
+    </li>
   )
 }
 
