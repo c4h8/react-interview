@@ -17,9 +17,7 @@
   position: sticky;
   -webkit-position: sticky;
   top: 0px;
-  /* compensate for shadow with negative margin */
   margin-top: -16px;
-  /* content should fall over shadow and cover */
   z-index: 3;
 }
 

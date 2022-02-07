@@ -1,24 +1,17 @@
-import React from 'react';
-import './todo.css';
+import React from "react";
+import "../Styles/todo.css";
 
-const getClassname = (complete) => complete
-  ? 'list-group-item todo complete'
-  : 'list-group-item todo incomplete'
+const getClassname = (complete) =>
+  complete
+    ? "list-group-item todo complete"
+    : "list-group-item todo incomplete";
 
-const TodoItem = ({
-  todo:  {
-    id,
-    name,
-    complete
-  },
-  toggleTodo,
-  deleteTodo,
-}) => {
+const TodoItem = ({ todo: { id, name, complete }, toggleTodo, deleteTodo }) => {
   return (
     <li className={getClassname(complete)}>
       <span>
-
-        <input type="checkbox"
+        <input
+          type="checkbox"
           value={complete}
           onChange={() => toggleTodo(id)}
         />
@@ -27,17 +20,17 @@ const TodoItem = ({
           aria-label="Toggle"
           onClick={() => toggleTodo(id)}>
         </button> */}
-        {name}  
+        {name}
       </span>
       <button
         className="btn btn-outline-secondary"
         aria-label="Delete"
-        onClick={() => deleteTodo(id)
-      }>
+        onClick={() => deleteTodo(id)}
+      >
         Delete
       </button>
     </li>
-  )
-}
+  );
+};
 
 export default TodoItem;
