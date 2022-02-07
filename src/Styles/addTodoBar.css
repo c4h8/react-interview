@@ -21,6 +21,11 @@
   z-index: 3;
 }
 
+.add-todo-bar form {
+  display: flex;
+  flex-grow: 1;
+}
+
 .add-todo-bar::before,
 .add-todo-bar::after {
   content: '';

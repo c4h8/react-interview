@@ -13,13 +13,9 @@ const TodoItem = ({ todo: { id, name, complete }, toggleTodo, deleteTodo }) => {
         <input
           type="checkbox"
           value={complete}
+          aria-label="Toggle"
           onChange={() => toggleTodo(id)}
         />
-        {/* <button
-          className="btn"
-          aria-label="Toggle"
-          onClick={() => toggleTodo(id)}>
-        </button> */}
         {name}
       </span>
       <button

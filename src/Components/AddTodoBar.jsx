@@ -24,19 +24,18 @@ const AddTodoBar = ({ addTodo }) => {
     <div className="add-todo-bar">
       <div className="py-2">
         <form
-          style={{ display: "flex", flexGrow: "1" }}
           onSubmit={handleSubmit}
         >
           <div className="input-group">
             <input
-              style={{ flexGrow: "1" }}
               type="text"
               className="form-control"
               placeholder="Add new todo"
+              aria-label="New todo name"
               value={newTodoText}
               onChange={handleOnChange}
             />
-            <button className="btn btn-success" type="submit" value="Submit">
+            <button className="btn btn-success" type="submit" value="Submit" aria-label="submit todo">
               Submit
             </button>
           </div>
