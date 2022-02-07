@@ -1,8 +1,8 @@
-import React from "react";
-import "../Styles/addTodoBar.css";
+import React from 'react';
+import '../Styles/addTodoBar.css';
 
 const AddTodoBar = ({ addTodo }) => {
-  const [newTodoText, setNewTodoText] = React.useState("");
+  const [newTodoText, setNewTodoText] = React.useState('');
 
   const handleOnChange = (ev) => {
     const value = ev.target.value;
@@ -14,9 +14,9 @@ const AddTodoBar = ({ addTodo }) => {
 
     const todoTrimmed = newTodoText.trim();
 
-    if (todoTrimmed !== "") {
+    if (todoTrimmed !== '') {
       addTodo(todoTrimmed);
-      setNewTodoText("");
+      setNewTodoText('');
     }
   };
 

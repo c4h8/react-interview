@@ -1,10 +1,10 @@
-import React from "react";
-import "../Styles/todo.css";
+import React from 'react';
+import '../Styles/todo.css';
 
 const getClassname = (complete) =>
   complete
-    ? "list-group-item todo complete"
-    : "list-group-item todo incomplete";
+    ? 'list-group-item todo complete'
+    : 'list-group-item todo incomplete';
 
 const TodoItem = ({ todo: { id, name, complete }, toggleTodo, deleteTodo }) => {
   return (
@@ -15,9 +15,11 @@ const TodoItem = ({ todo: { id, name, complete }, toggleTodo, deleteTodo }) => {
           value={complete}
           aria-label="Toggle"
           onChange={() => toggleTodo(id)}
-        />
-        {name}
+        /> 
       </span>
+      <div>
+        {name}
+      </div>
       <button
         className="btn btn-outline-secondary"
         aria-label="Delete"

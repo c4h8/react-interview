@@ -2,13 +2,11 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  vertical-align: middle;
 }
 
 .todo input[type="checkbox"] {
   width: 2em;
   height: 2rem;
-  margin-right: 1rem;
   accent-color: rgb(230, 230, 230);
 }
 
@@ -24,10 +22,15 @@
 }
 
 .todo > span {
+  align-self: flex-start;
   display: inline-block;
   vertical-align: middle;
 }
 
-.todo > span > * {
-  vertical-align: middle;
+.todo > div {
+  margin: auto 1rem;
+  min-width: 10px;
+  overflow-wrap: break-word;
+  flex-grow: 1;
+  text-align: left;
 }

@@ -1,16 +1,16 @@
-import React from "react";
-import { v4 as uuidv4 } from "uuid";
-import "./Styles/App.css";
+import React from 'react';
+import { v4 as uuidv4 } from 'uuid';
+import './Styles/App.css';
 
-import AddTodoBar from "./Components/AddTodoBar";
-import TodoItem from "./Components/TodoItem";
+import AddTodoBar from './Components/AddTodoBar';
+import TodoItem from './Components/TodoItem';
 
 const initialTodos = {
-  a1: { id: "a1", name: "Go to the supermarket", complete: false },
-  a2: { id: "a2", name: "Call Alice", complete: false },
-  a3: { id: "a3", name: "Ask Alice to call Bob", complete: false },
-  a4: { id: "a4", name: "Do the dishes", complete: false },
-  a5: { id: "a5", name: "Change car tyres", complete: false },
+  a1: { id: 'a1', name: 'Go to the supermarket', complete: false },
+  a2: { id: 'a2', name: 'Call Alice', complete: false },
+  a3: { id: 'a3', name: 'Ask Alice to call Bob', complete: false },
+  a4: { id: 'a4', name: 'Do the dishes', complete: false },
+  a5: { id: 'a5', name: 'Change car tyres', complete: false },
 };
 
 const App = () => {
